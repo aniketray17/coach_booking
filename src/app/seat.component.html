@@ -1,0 +1,16 @@
+<label for="numSeats">Enter the number of seats to book:</label>
+<input type="number" id="numSeats" [(ngModel)]="numSeats" />
+<button (click)="bookSeats()">Book Seats</button>
+
+<table>
+  <tbody>
+    <tr *ngFor="let row of rows; let rowIndex = index">
+      <td
+        *ngFor="let seat of row.seats; let seatIndex = index"
+        [ngClass]="seat === 0 ? 'available' : 'booked'"
+      >
+        <span>{{ rowIndex * seatsPerRow + seatIndex + 1 }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
